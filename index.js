@@ -1,17 +1,24 @@
 import express  from "express";
+import {ler} from "./src/aluno.js"
 
 const app = express();
 const porta = 3000;
+
+// Configurando suporte a JSON
+app.use(express.json()); // essa linha dentro do express é o que dará suporte a JSON
+// Configurando suporte a dados de formulários (input)
+app.use(express.urlencoded({extended : true}));
 //configurando ROTAS
 
 // Rota (endpoint) para a raiz da api
 app.get('/', (req, res) => {
-    res.send('É um dia lindo para andar a cavalo');
+    res.send('Página inicial da aplicação');
 });
 
 // Rota (endpoint para exibir todos os alunos)
 app.get('/alunos', (req, res) => {
-    res.send(`Todos alunos`);
+   // res.send(`Todos alunos`);
+   ler(res);
 });
 
 // Rota (endpoint) para exibir um único aluno
