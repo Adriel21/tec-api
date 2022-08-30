@@ -1,5 +1,5 @@
 import express  from "express";
-import {ler} from "./src/aluno.js"
+import {ler, inserir, lerUm, atualizar} from "./src/aluno.js"
 
 const app = express();
 const porta = 3000;
@@ -23,12 +23,16 @@ app.get('/alunos', (req, res) => {
 
 // Rota (endpoint) para exibir um único aluno
 app.get(`/alunos/:id`, (req, res) => {
-    res.send(`Exibindo dados de um aluno`);
+    // res.send(`Exibindo dados de um aluno`);
+    const id = req.params.id; //params é função nativa do mysql 2 - pegue todos os parâmetros e busque o id
+    lerUm(id, res);
 });
 
 // Rota (endpoint) para INSERIR alunos
 app.post('/alunos', (req, res) => {
-    res.send(`INSERINDO alunos`);
+    // res.send(`INSERINDO alunos`);
+    const novoAluno = req.body;
+    inserir(novoAluno, res);
 });
 
 // Rota para atualizar TODOS os dados do aluno
@@ -37,7 +41,13 @@ app.put('/alunos/:id', (req, res) => {
 });
 
 app.patch('/alunos/:id', (req, res) => {
-    res.send(`ATUALIZA ALGUNS/todos os dados de um aluno`);
+    // res.send(`ATUALIZA ALGUNS/todos os dados de um aluno`);
+
+    // capturar id
+    const id = parseInt(req.params.id);
+    // dados do aluno
+    const aluno = req.body;
+    atualizar(id, aluno, res);
 });
 
 // Rota (endpint) para EXCLUIR aluno
