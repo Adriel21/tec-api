@@ -1,5 +1,5 @@
 import express  from "express";
-import {ler, inserir, lerUm, atualizar} from "./src/aluno.js"
+import {ler, inserir, lerUm, atualizar, excluir} from "./src/aluno.js"
 
 const app = express();
 const porta = 3000;

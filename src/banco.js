@@ -4,9 +4,9 @@ import mysql from 'mysql2'; //instalado via npm e importado
 // Configuração a conexão
 const conexao = mysql.createConnection({
     host: 'localhost',
-    user: 'root',
+    user: 'suniow89_apiadriel',
     passowrd: '',
-    database: 'escola'
+    database: 'suniow89_apiadriel'
 });
 
 // conectando ao banco de dados
