@@ -3,9 +3,16 @@ import mysql from 'mysql2'; //instalado via npm e importado
 
 // Configuração a conexão
 const conexao = mysql.createConnection({
-    host: 'localhost',
-    user: 'suniow89_apiadriel',
-    passowrd: '',
+    //Local
+    // host: 'localhost',
+    // user: 'root',
+    // passowrd: '',
+    // database: 'escola'
+
+    // Remoto 
+    host: 'ns1046.hostgator.com.br',
+    user: 'suniow89_adriel',
+    password: '440Adriel@',
     database: 'suniow89_apiadriel'
 });
 
@@ -16,7 +23,7 @@ conexao.connect (erro => {
     if(erro) {
         console.error(`Erro ao conectar: ${erro.message}`); //
     } else {
-        console.log(`Banco de dados conectado com sucesso!`);
+        console.log(`Banco de dados conectado em ${conexao.config.host}`);
     }
 });
 
