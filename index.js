@@ -50,11 +50,12 @@ app.patch('/alunos/:id', (req, res) => {
     atualizar(id, aluno, res);
 });
 
-// Rota (endpint) para EXCLUIR aluno
-app.delete(`/alunos/:id`, (req, res) => {
-    res.send(`EXCLUI aluno.`);
+// Rota (endpoint) para EXCLUIR aluno
+app.delete('/alunos/:id', (req, res) => {
+    // res.send(`EXCLUI aluno.`);
+    const id = parseInt(req.params.id);
+    excluir(id, res);
 });
-
 
 // Configurando o servidor 
 app.listen(porta, () => {
