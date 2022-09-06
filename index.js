@@ -1,8 +1,12 @@
 import express  from "express";
-import {ler, inserir, lerUm, atualizar, excluir} from "./src/aluno.js"
+import cors from "cors";
+import {ler, inserir, lerUm, atualizar, excluir} from "./src/aluno.js";
 
 const app = express();
 const porta = process.env.PORT || 3000;
+
+//  Configurando requisições de diferentes origens
+app.use(cors());
 
 // Configurando suporte a JSON
 app.use(express.json()); // essa linha dentro do express é o que dará suporte a JSON
